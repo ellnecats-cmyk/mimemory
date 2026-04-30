@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .profileImg {
+      width: 120px;
+      border-radius: 50%;
+    }
+
+    .linkBtn {
+      display: block;
+      margin: 10px 0;
+      padding: 12px;
+      background: #1e293b;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .linkBtn:hover {
+      background: #334155;
+    }
+
+    .emailBox {
+      margin-top: 15px;
+      padding: 12px;
+      background: #1e293b;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #copyBtn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #334155;
+      color: white;
+      cursor: pointer;
+    }
+
+    #copyBtn:hover {
+      background: #475569;
+    }
+    .infoBox {
+  margin-top: 15px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionBtn {
+  margin-left: 5px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #334155;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.actionBtn:hover {
+  background: #475569;
+}
+.actionBtn i {
+  margin-right: 5px;
+}
+.badgeWrap {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.badge {
+  padding: 5px 10px;
+  background: #334155;
+  border-radius: 999px;
+  font-size: 14px;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 프로필 -->
+    <img src="image1.jpg" class="profileImg">
+    <h1>홍미선</h1>
+    <div class="badgeWrap">
+  <span class="badge">앱 개발자</span>
+  <span class="badge">바이브코딩</span>
+</div>
+    
+    <!-- 링크 -->
+    <!-- 블로그 -->
+<div class="infoBox">
+  <span>appdev-beginner.blogspot.com</span>
+  <div>
+    <a href="https://appdev-beginner.blogspot.com/" target="_blank" class="actionBtn">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i> 바로가기
+    </a>
+  </div>
+</div>
+
+<!-- 이메일 -->
+<div class="infoBox">
+  <span id="emailText">ellnecatsl@gmail.com</span>
+  <div>
+    <a href="https://mail.google.com/mail/?view=cm&to=ellnecatsl@gmail.com" target="_blank" class="actionBtn">
+      <i class="fa-solid fa-envelope"></i> 메일
+    </a>
+    <button id="copyBtn" class="actionBtn">
+      <i class="fa-solid fa-copy"></i> 복사
+    </button>
+  </div>
+</div>
+
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const emailText = document.getElementById('emailText').innerText;
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(emailText);
+
+      copyBtn.innerText = '복사됨!';
+      
+      setTimeout(() => {
+        copyBtn.innerText = '복사';
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
